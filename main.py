@@ -22,7 +22,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-# Constants
 SCREENSHOT_DIR = "./saved_screenshots"
 RECORD_SECONDS = 5
 RATE = 44100
@@ -85,7 +84,7 @@ def transcribe(conn):
             options = whisper.DecodingOptions(language='en', fp16=False)
             result = whisper.decode(model, mel, options)
             transcript = result.text
-            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay", "Questions started", "Question ended", "Passing it on to chat GPT now", "I'm not sure what I'm doing here", "Passing it on to chat GPT"]:
+            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay", "Questions started", "Question ended", "Passing it on to chat GPT now", "I'm not sure what I'm doing here", "Passing it on to chat GPT", "Thanks"]:
                 transcript = transcript.replace(phrase, "")
             if transcript:
                 print(transcript)
@@ -93,6 +92,8 @@ def transcribe(conn):
             all_transcripts.append((transcript, datetime.now()))
 
             if "panera" in transcript.lower() and not capturing_question:
+                transcript.replace("Panera", "")
+                transcript.replace("panera", "")
                 capturing_question = True
                 question_transcripts = []
                 rand = random.randint(1, 4)
@@ -102,6 +103,8 @@ def transcribe(conn):
             if capturing_question:
                 question_transcripts.append(transcript)
                 if "bread" in transcript.lower():
+                    transcript.replace("Bread", "")
+                    transcript.replace("bread", "")
                     capturing_question = False
                     question = ' '.join(question_transcripts)
                     last_five_minutes = get_last_five_minutes(all_transcripts)
