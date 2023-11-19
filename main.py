@@ -85,7 +85,7 @@ def transcribe(conn):
             options = whisper.DecodingOptions(language='en', fp16=False)
             result = whisper.decode(model, mel, options)
             transcript = result.text
-            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay"]:
+            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay", "Questions started", "Question ended", "Passing it on to chat GPT now", "I'm not sure what I'm doing here", "Passing it on to chat GPT"]:
                 transcript = transcript.replace(phrase, "")
             if transcript:
                 print(transcript)
@@ -106,7 +106,7 @@ def transcribe(conn):
                     question = ' '.join(question_transcripts)
                     last_five_minutes = get_last_five_minutes(all_transcripts)
                     screenshot_path = capture_screenshot()
-                    prompt = f"Please note that the following text may be finicky because it's transcribed. Use your discretion on what I actually intended to say: {question}.\nFor context, here is the last five minutes of my lecture: {last_five_minutes}\n"
+                    prompt = f"Please note that the following text may be finicky because it's transcribed. Just ignore any words that seem out of place. Use your discretion on what I actually intended to say. \n\n My question is: {question}.\n\n\nFor context, here is the last five minutes of my lecture: {last_five_minutes}. Also attached is a screenshot of the current lecture slide."
                     print(bcolors.OKGREEN + "\n\nQuestion Ended\n\n" + bcolors.ENDC)
                     copy_to_clipboard(prompt, screenshot_path)
                     print(prompt)
