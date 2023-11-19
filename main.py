@@ -106,7 +106,7 @@ def transcribe(conn):
                     question = ' '.join(question_transcripts)
                     last_five_minutes = get_last_five_minutes(all_transcripts)
                     screenshot_path = capture_screenshot()
-                    prompt = f"Please note that the following text may be finicky because it's transcribed. Just ignore any words that seem out of place. Use your discretion on what I actually intended to say. \n\n My question is: {question}.\n\n\nFor context, here is the last five minutes of my lecture: {last_five_minutes}. Also attached is a screenshot of the current lecture slide."
+                    prompt = f"Please note that the following text may be finicky because it's transcribed. Just ignore any words that seem out of place... don't even mention them. Use your discretion on what I actually intended to say. \n\n My question is: {question}.\n\n\nFor context, here is the last five minutes of my lecture: {last_five_minutes}. Also attached is a screenshot of the current lecture slide."
                     print(bcolors.OKGREEN + "\n\nQuestion Ended\n\n" + bcolors.ENDC)
                     copy_to_clipboard(prompt, screenshot_path)
                     print(prompt)
