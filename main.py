@@ -84,7 +84,7 @@ def transcribe(conn):
             options = whisper.DecodingOptions(language='en', fp16=False)
             result = whisper.decode(model, mel, options)
             transcript = result.text
-            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay", "Questions started", "Question ended", "Passing it on to chat GPT now", "I'm not sure what I'm doing here", "Passing it on to chat GPT", "Thanks"]:
+            for phrase in ["Thanks for watching!", "Thank you.", "I'll see you next time.", ".", "Question started", "I'm sorry", "Bye", "bye", "I'll see you guys next time", "Okay", "Questions started", "Question ended", "Passing it on to chat GPT now", "I'm not sure what I'm doing here", "Passing it on to chat GPT", "Thanks", "Thank you for watching"]:
                 transcript = transcript.replace(phrase, "")
             if transcript:
                 print(transcript)
