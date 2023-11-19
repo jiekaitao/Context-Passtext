@@ -1,0 +1,2 @@
+# Ignore all files and directories in the vosk-model-en-us-0.22 folder
+/vosk-model-en-us-0.22/*
