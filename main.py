@@ -65,9 +65,6 @@ def continuous_transcription():
             if transcript:  # Only print when partial transcript is not empty
                 print(transcript, end='\r')
 
-    stream.stop_stream()
-    stream.close()
-
 def push_prompt(question, last_five_minutes):
     prompt = f"""I have a question on the material I am studying: {question}.
     For context, here is the last five minutes of my lecture: {last_five_minutes}
