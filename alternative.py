@@ -43,7 +43,7 @@ def play_louder(file_path, volume_increase=0.50):
 # Function to get last five minutes from transcripts
 def get_last_five_minutes(transcripts):
     now = datetime.now()
-    five_minutes_ago = now - timedelta(minutes=30)
+    five_minutes_ago = now - timedelta(minutes=15)
     return ' '.join(t for t, timestamp in transcripts if timestamp > five_minutes_ago)
 
 # Function to capture a screenshot
@@ -122,7 +122,7 @@ def transcribe(conn):
                                   f"(it contains my question. There may be multiple questions in there. "
                                   f"You can refer to the screenshot, but don't say obvious stuff like 'I see that you've uploaded a screenshot.' And unless specified otherwisre, I only want you to answer my question. If I want you to walk me through the whole problem, I'll say so."
                                   f"Make sure you only respond to the latest question, which is most likely towards the end of the text, "
-                                  f"and not any questions you've responded to already). Sometimes I may precede my question with 'Hey ChatGPT,'"
+                                  f"and not any questions you've responded to already). Sometimes I may precede my question with 'Hey ChatGPT,' Wheverever you can, refer back to what my professor said to help me make connections."
                                   f"\n\n\n"
                                   f"Here's the last 5 minutes of my lecture: {last_five_minutes}")
                         print(bcolors.OKGREEN + "\n\nQuestion Ended\n\n" + bcolors.ENDC)
