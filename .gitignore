@@ -2,3 +2,5 @@
 /vosk-model-en-us-0.22/*
 recording0.wav
 recording0.wav
+*.png
+*.json
