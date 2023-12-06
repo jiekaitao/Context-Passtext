@@ -4,3 +4,5 @@ recording0.wav
 recording0.wav
 *.png
 *.json
+saved_screenshots/last_screenshot.png
+variables.json
