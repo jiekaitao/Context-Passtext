@@ -149,7 +149,6 @@ def on_activate():
 
     # print("Updated last_keystroke timestamp.")
 
-    
 
 def for_canonical(f):
     return lambda k: f(listener.canonical(k))
