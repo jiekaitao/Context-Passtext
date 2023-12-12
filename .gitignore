@@ -6,3 +6,5 @@ recording0.wav
 *.json
 saved_screenshots/last_screenshot.png
 variables.json
+*.png
+*.json
