@@ -40,7 +40,7 @@ def play_louder(file_path, volume_increase=0.50):
     louder_audio = audio + (10 * volume_increase)
     play(louder_audio)
 
-# Function to get last five minutes from transcripts
+# Function to get last fifteen minutes from transcripts
 def get_last_five_minutes(transcripts):
     now = datetime.now()
     five_minutes_ago = now - timedelta(minutes=15)
