@@ -27,7 +27,7 @@ class bcolors:
 
 # Constants
 SCREENSHOT_DIR = "./saved_screenshots"
-RECORD_SECONDS = 5
+RECORD_SECONDS = 15
 RATE = 16000
 CHANNELS = 1
 
